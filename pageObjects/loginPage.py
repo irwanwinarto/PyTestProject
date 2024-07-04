@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 # I am going to use this demo website, https://www.nopcommerce.com/en/demo, for testing purposes.
 
+
 class LoginPage:
     textbox_username_id = "Email"
     textbox_password_id = "Password"
