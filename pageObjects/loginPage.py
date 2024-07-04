@@ -6,6 +6,9 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPage:
+
+    # Keep page variables neat as class variables, because we use them throughout the page.
+    # Do what you did before at t-mob, have a separate file for locators IF there are too many elements.
     textbox_username_id = "Email"
     textbox_password_id = "Password"
     button_login_xpath = "//button[contains(text(),'Log in')]"
@@ -15,10 +18,14 @@ class LoginPage:
         self.driver = driver    # assign the browser driver.
 
     def set_username(self, username):
+
+        # I am using a different find_element method format here.
         self.driver.find_element(By.ID, self.textbox_username_id).clear()
         self.driver.find_element(By.ID, self.textbox_username_id).send_keys(username)
 
     def set_password(self, password):
+
+        # This is the other method format to use find_element method.
         self.driver.find_element_by_id(self.textbox_password_id).clear()
         self.driver.find_element_by_id(self.textbox_password_id).send_keys(password)
 
