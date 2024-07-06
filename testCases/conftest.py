@@ -4,5 +4,5 @@ import pytest
 
 @pytest.fixture()
 def setup():
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome()  # might need to specify file path
     return driver
