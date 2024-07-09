@@ -51,9 +51,10 @@ class TestLogin1:
         self.driver.get(self.baseURL)
 
     @pytest.mark.pokeapi
-    def test_pokeapi(self, setup):
+    def test_pokeapi(self, setup, monster_name):
         print("\nHELLO WORLD\n")
-        url = "https://pokeapi.co/api/v2/pokemon/charmander"
+        pokemon = monster_name
+        url = f"https://pokeapi.co/api/v2/pokemon/{pokemon}"
         response = requests.get(url)
         print(f"\nRESPONSE: {response.content}\n")
         # Verify status code
