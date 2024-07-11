@@ -47,20 +47,23 @@ class TestLogin1:
     @pytest.mark.testthis
     def test_one(self, setup):
         self.driver = setup
-        print("This works")
         self.driver.get(self.baseURL)
 
     @pytest.mark.pokeapi
-    def test_pokeapi(self, setup, monster_name):
-        print("\nHELLO WORLD\n")
+    def test_get_pokemon_details(self, setup, monster_name):
         pokemon = monster_name
         url = f"https://pokeapi.co/api/v2/pokemon/{pokemon}"
         response = requests.get(url)
-        print(f"\nRESPONSE: {response.content}\n")
         # Verify status code
         assert response.status_code == 200
 
-    @pytest.mark.apitest
+    @pytest.mark.pokeapi
+    def test_get_berry_details(self, berry_name):
+        url = f"https://pokeapi.co/api/v2/berry/{berry_name}"
+        response = requests.get(url)
+        assert response.status_code == 200
+
+    @pytest.mark.mockytest
     def test_get_book_by_id(self):
         url = "https://run.mocky.io/v3/01123071-8b34-41af-b787-f666fad3ca33"  # Replace with your mock API URL
         response = requests.get(url)
