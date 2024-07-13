@@ -68,6 +68,5 @@ class TestLogin1:
         url = "https://run.mocky.io/v3/01123071-8b34-41af-b787-f666fad3ca33"  # Replace with your mock API URL
         response = requests.get(url)
         print("\nRESPONSE: {} \n".format(response.content))
-
         # Verify status code
         assert response.status_code == 200
